@@ -1,7 +1,3 @@
-# jarvis.py
-# A simple Jarvis-like personal assistant written in Python
-# by a human-friendly style for learning
-
 import datetime
 import speech_recognition as sr 
 import pyttsx3 
@@ -11,7 +7,6 @@ import requests
 import pyjokes
 import os
 
-# ------------------ SPEAK FUNCTION ------------------
 def speak(text):
     """Make Jarvis speak the given text."""
     engine = pyttsx3.init()
@@ -20,7 +15,6 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
-# ------------------ LISTEN FUNCTION ------------------
 def take_command():
     """Listen to user voice and return as text."""
     r = sr.Recognizer()
@@ -38,7 +32,6 @@ def take_command():
         return "None"
     return query.lower()
 
-# ------------------ WISHING FUNCTION ------------------
 def wish_me():
     hour = int(datetime.datetime.now().hour)
     if 0 <= hour < 12:
@@ -47,9 +40,8 @@ def wish_me():
         speak("Good Afternoon!")
     else:
         speak("Good Evening!")
-    speak("Hello, I am Jarvis. How can I help you?")
+    speak("Hello, I am your personal assistant. How can I help you?")
 
-# ------------------ WIKIPEDIA FUNCTION ------------------
 def search_wikipedia(query):
     try:
         results = wikipedia.summary(query, sentences=2)
@@ -59,7 +51,6 @@ def search_wikipedia(query):
     except:
         speak("Sorry, I could not find anything on Wikipedia.")
 
-# ------------------ WEATHER FUNCTION ------------------
 def get_weather(city):
     api_key = "your_openweathermap_api_key"  # <-- put your API key here
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
@@ -79,13 +70,11 @@ def get_weather(city):
     except:
         speak("Sorry, I couldn't get the weather right now.")
 
-# ------------------ NOTES FUNCTION ------------------
 def write_note(note):
     with open("notes.txt", "a") as f:
         f.write(f"{datetime.datetime.now()}: {note}\n")
     speak("Note written successfully.")
 
-# ------------------ MAIN PROGRAM ------------------
 if __name__ == "__main__":
     wish_me()
     while True:
@@ -137,3 +126,4 @@ if __name__ == "__main__":
 
         else:
             speak("I did not understand, please say that again.")
+
