@@ -8,7 +8,7 @@ import pyjokes
 import os
 
 def speak(text):
-    """Make Jarvis speak the given text."""
+    #to make jarvis speak 
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
     engine.setProperty('voice', voices[0].id)  # choose voice [0]=male, [1]=female
@@ -16,7 +16,7 @@ def speak(text):
     engine.runAndWait()
 
 def take_command():
-    """Listen to user voice and return as text."""
+    """Listen to user voice and return as text"""
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
