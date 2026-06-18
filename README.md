@@ -70,3 +70,5 @@ pyaudio
 * **Microphone access** must be enabled on your system.
 * If you have multiple microphones, edit the `device_index` in the code.
 * On Windows, you may need to install **PyAudio wheel** manually if `pip install pyaudio` fails.
+* This is just the demo of what is being created
+* The work on assistant is still going on. 
